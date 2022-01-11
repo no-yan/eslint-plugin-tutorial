@@ -10,7 +10,7 @@ tester.run("no-function-apply", rule, {
   valid: [
     { code: `(props) => <div />` },
     { code: `(props) => <div width='0'/>` },
-    { code: `(props) => <div onClick=''/>` },
+    { code: `(props:Props) => <div onClick=''/>` },
   ],
   invalid: [{ code: `(props) => <button height='1'/>`, errors: [{ message: "Don't use '<button>'" }] }],
 });
