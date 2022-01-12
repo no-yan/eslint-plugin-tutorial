@@ -43,7 +43,8 @@ const rule: Rule.RuleModule = {
         if (!(maybeJSXIdentifier.type === "JSXIdentifier")) {
           return;
         }
-
+        // It is identifier.
+        // Because Estree doesn't know JSX syntax, we'll convevrt type from JSXIdentifer from Identifier.
         const identifier = maybeJSXIdentifier as unknown as Identifier;
         if (!isChakraComponent(identifier)) {
           return;
@@ -56,6 +57,7 @@ const rule: Rule.RuleModule = {
           }
           return fixer.replaceTextRange(targetAttribute.range, "height");
         };
+
         context.report({
           message: "Don't use 'h', use instead 'height'",
           node: targetAttribute,
