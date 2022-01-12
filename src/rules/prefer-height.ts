@@ -46,7 +46,6 @@ const rule: Rule.RuleModule = {
           return;
         }
         context.report({ message: "Don't use 'h', use instead 'height'", node });
-        // }
       },
     };
   },
